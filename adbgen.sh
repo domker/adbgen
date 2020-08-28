@@ -3,7 +3,7 @@
 # Generator skonsolidowanego pliku blokady reklam HOSTS
 # z możliwością generowania archiwum ZIP (tylko smartfony Xiaomi z MIUI Polska/MIUI.eu) dla TWRP.
 # Używasz na własną odpowiedzialność! - oryginalne pliki hosts dostępne w katalogu 'stock_hosts'.
-# Github: 
+# Github: https://github.com/domker/adbgen
 
 # Jeżeli chcesz pominąć jakąś listę blokowania, aby nie znalazła się w pliku hosts to jej adres URL zastąp w pliku "urllist.txt" wyrazem "blank" (z wyjątkiem pierwszych 3 adresów URL)
 

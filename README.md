@@ -35,11 +35,11 @@ Można również wygenerować plik hosts w archiwum ZIP dla flashowania przy pom
     
       Polecenie:
       ```sh
-      godl && curl -# -L -o adbgen.zip "https://github.com/domker/adbgen/archive/master.zip" && unzip adbgen.zip && cd adbgen-master && chmod +x adbgen.sh
+      godl && curl -# -L -o adbgen.zip "https://github.com/domker/adbgen/archive/master.zip" && unzip adbgen.zip && cd adbgen-master
       ```
     * Używanie skryptu
     
-      `./adbgen.sh [OPCJA]`
+      `sh adbgen.sh [OPCJA]`
       
       > **d** - tylko pobierz listy do katalogu cache\
       > **g** - wygeneruj plik hosts\
@@ -71,7 +71,7 @@ Można również wygenerować plik hosts w archiwum ZIP dla flashowania przy pom
       
       `curl -# -L -o adbgen.zip "https://github.com/domker/adbgen/archive/master.zip" && unzip adbgen.zip && cd adbgen-master && chmod +x adbgen.sh`
     
-    * Używanie skryptu - tak jak w przypadku Androida powyżej
+    * Używanie skryptu - tak jak w przypadku Androida powyżej (lub `./adbgen.sh [OPCJA]`)
 
 3. Windows
 

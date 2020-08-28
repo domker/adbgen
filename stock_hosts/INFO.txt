@@ -1,0 +1,9 @@
+Pliki służą do przywrócenia oryginalnego pliku hosts przy pomocy TWRP na smartfonach Xiaomi.
+Plik "Przywracanie_hosts_v1_signed" dla starszych smartfonów Xiaomi.
+Plik "Przywracanie_hosts_v2_signed" dla nowszych smartfonów Xiaomi m. in.: Mi 10, Mi 9, Mi 9 SE, Mi 9T/Redmi K20, Mi 9T Pro/Redmi K20 Pro, Redmi Note 7, Redmi Note 7 Pro, Redmi 7A, Redmi 7, Redmi Y3, Mi A2, Mi A2 Lite, Mi A3, Mi A1, Mi CC9, Mi CC9e, Mi CC9 Meitu, Redmi 6 (Android Pie), Redmi 6A (Android Pie)
+
+
+Źródło:
+http://fredek.no-ip.org/adaway/Przywracanie_hosts_v1_signed.zip
+http://fredek.no-ip.org/adaway/Przywracanie_hosts_v2_signed.zip
+https://miuipolska.pl/forum/topic/31318-blokada-reklam-dla-xiaomieu-nie-wymaga-root/

@@ -10,7 +10,7 @@
 clear
 echo -e "#### adbgen.sh by Domker_ ####\n"
 
-[[ ! -d cache ]] && mkdir cache
+if [ ! -d cache ]; then mkdir cache; fi
 cd cache
 
 
@@ -18,10 +18,10 @@ cd cache
 
 dl_lists() {
 #pobieranie list blokowania do cache i generowanie sum kontrolnych
-local i=1
+i=1
 
-[[ -f localchcksums.sha1 ]] && rm -v localchcksums.sha1
-[[ ! -f ../urllist.txt ]] && echo "Brakuje pliku urllist.txt z adresami list blokowania!" && exit 1
+if [ -f localchcksums.sha1 ]; then rm -v localchcksums.sha1; fi
+if [ ! -f ../urllist.txt ]; then echo "Brakuje pliku urllist.txt z adresami list blokowania!" && exit 1; fi
 
 echo "Pobieranie list blokowania i generowanie sum kontrolnych:"
 
@@ -29,7 +29,7 @@ while read url; do
     echo "== $url =="
     curl -sL -o $i.txt "$url" && echo "Pobrano!" || echo "Nie pobrano!"
     sha1sum $i.txt | awk '{print $1}' >> localchcksums.sha1
-    ((i++))
+    i=$((i+1))
 done < ../urllist.txt
 
 }
@@ -101,18 +101,18 @@ echo "Plik hosts został wygenerowany!"
 
 chck_lists() {
 #sprawdzanie, czy pliki na serwerach się zmieniły
-local i=1
+i=1
 
-[[ ! -f localchcksums.sha1 ]] && echo "Nie można sprawdzić aktualności plików - brak pliku localchcksums.sha1" && exit 1
+if [ ! -f localchcksums.sha1 ]; then echo "Nie można sprawdzić aktualności plików - brak pliku localchcksums.sha1" && exit 1; fi
 
 echo "Sprawdzanie, czy nowe listy pojawiły się na serwerach - czekaj:"
 
 while read url; do
-    if [[  "$url" != "blank" ]]; then
+    if [  "$url" != "blank" ]; then
         echo "..."
         curl -sL "$url" | sha1sum - | awk '{print $1}' >> remotechcksums.sha1
     fi
-    ((i++))
+    i=$((i+1))
 done < ../urllist.txt
 
 cmp -s localchcksums.sha1 remotechcksums.sha1 && echo "Pliki na serwerach są takie same!" || echo "Wykryto zmiany na serwerze/-ach, można wygenerować nowy plik hosts!"
@@ -123,8 +123,8 @@ rm remotechcksums.sha1
 
 twrp_zip() {
 #tworzenie pliku zip do flashowania hosts w TWRP
-[[ ! -f ../hosts ]] && echo "Najpierw wygeneruj plik hosts! ( ./adbgen.sh g )" && exit 1
-[[ ! -f ../template_$1.zip ]] && echo "W katalogu ze skryptem brakuje pliku szablonu template_$1.zip!" && exit 1
+if [ ! -f ../hosts ]; then echo "Najpierw wygeneruj plik hosts! ( ./adbgen.sh g )" && exit 1; fi
+if [ ! -f ../template_$1.zip ]; then echo "W katalogu ze skryptem brakuje pliku szablonu template_$1.zip!" && exit 1; fi
 
 echo "== Tworzenie pliku zip (wersja $1) z hosts dla TWRP =="
 cp ../template_$1.zip tmp.zip

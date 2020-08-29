@@ -8,7 +8,7 @@
 # Jeżeli chcesz pominąć jakąś listę blokowania, aby nie znalazła się w pliku hosts to jej adres URL zastąp w pliku "urllist.txt" wyrazem "blank" (z wyjątkiem pierwszych 3 adresów URL)
 
 clear
-echo -e "#### adbgen.sh by Domker_ ####\n"
+echo "#### adbgen.sh by Domker_ ####"
 
 if [ ! -d cache ]; then mkdir cache; fi
 cd cache
@@ -159,7 +159,8 @@ case $opt in
     *)
         cat <<EOF
         
-Użycie: ./adbgen.sh [ OPCJA ]
+Użycie: sh adbgen.sh [ OPCJA ]
+    lub ./adbgen.sh [ OPCJA ]
 
 d - tylko pobierz listy do katalogu cache
 g - wygeneruj plik hosts

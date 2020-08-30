@@ -38,7 +38,7 @@ clean_lists() {
 #czyszczenie list ze zbędnych elementów i konsolidacja
 
 echo "== Zmiana formatu na hosts dla list Disconnect =="
-sed -i -e 's/^/0.0.0.0 /' 1.txt 2.txt 3.txt && echo "OK!"
+sed -i -e '1,4d; s/^/0.0.0.0 /' 1.txt 2.txt 3.txt && echo "OK!"
 
 
 echo "== Usuwanie nagłówków hosts =="

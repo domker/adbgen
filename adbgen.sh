@@ -70,21 +70,11 @@ rm -v hosts_joined.dirty
 gen_hosts() {
 #generowanie finalnego pliku hosts
 local tmpheader=`mktemp` || exit 1
+local header_urls=`while read url; do echo "# $url"; done < ../urllist.txt`
 
 cat > $tmpheader <<EOF
 Wygenerowano przy pomocy adbgen.sh (made by Domker_) dnia: `date '+%d-%m-%Y %H:%M:%S'`
-# https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
-# https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt
-# https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
-# https://someonewhocares.org/hosts/hosts
-# http://winhelp2002.mvps.org/hosts.txt
-# http://www.malwaredomainlist.com/hostslist/hosts.txt
-# https://adaway.org/hosts.txt
-# https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext
-# https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
-# https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt
-# https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-YouTube-AdBlock.txt
-
+$header_urls
 
 127.0.0.1 localhost
 ::1 localhost
@@ -123,7 +113,7 @@ rm remotechcksums.sha1
 
 twrp_zip() {
 #tworzenie pliku zip do flashowania hosts w TWRP
-if [ ! -f ../hosts ]; then echo "Najpierw wygeneruj plik hosts! ( ./adbgen.sh g )" && exit 1; fi
+if [ ! -f ../hosts ]; then echo "Najpierw wygeneruj plik hosts! ( sh adbgen.sh g LUB ./adbgen.sh g )" && exit 1; fi
 if [ ! -f ../template_$1.zip ]; then echo "W katalogu ze skryptem brakuje pliku szablonu template_$1.zip!" && exit 1; fi
 
 echo "== Tworzenie pliku zip (wersja $1) z hosts dla TWRP =="

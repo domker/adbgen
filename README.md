@@ -21,6 +21,8 @@ Można również wygenerować plik hosts w archiwum ZIP dla flashowania przy pom
       echo "alias godl='cd /storage/emulated/0/Download'" >> bash.bashrc
       exit
       ```
+      > Powyższy krok wykonaj tylko jednokrotnie, aby uniknąć podwójnych wpisów w pliku "bash.bashrc"!
+      
       (ścieżka do katalogu `Download` może się w niektórych smartfonach Xiaomi różnić - jeżeli jest inna to zmodyfikuj ją odpowiednio w poleceniu)
       
       Następnie uruchom ponownie Termux i sprawdź wpisując `godl` <kbd>&#9166;</kbd>, a następnie `basename $(pwd)` <kbd>&#9166;</kbd>, czy jesteś w katalogu `Download`.

@@ -34,9 +34,19 @@ Można również wygenerować plik hosts w archiwum ZIP dla flashowania przy pom
     * Pobieranie i rozpakowywanie skryptu `adbgen.sh` z repozytorium GitHub
     
       Polecenie:
+      
+      **UWAGA!** Przed wykonaniem polecenia upewnij się, że aplikacja Termux ma nadane uprawnienia dostępu do pamięci urządzenia. 
+      (przytrzymaj dłużej na ikonie aplikacji i wybierz "O aplikacji" > "Uprawnienia aplikacji" > "Pamięć" zmień na pozycję włączoną.)
+      
+      W przeciwnym razie otrzymasz następujący komunikat: 
+      
+      > "Warning: Failed to create the file adbgen.zip: Permission denied
+      > curl: (23) Failure writing output to destination"
+      
       ```sh
       godl && curl -# -L -o adbgen.zip "https://github.com/domker/adbgen/archive/master.zip" && unzip adbgen.zip && cd adbgen-master
       ```
+      
     * Używanie skryptu
     
       `sh adbgen.sh [OPCJA]`
@@ -46,6 +56,10 @@ Można również wygenerować plik hosts w archiwum ZIP dla flashowania przy pom
       > **c** - sprawdź, czy listy blokowania są aktualne\
       > **zv1** - przygotuj plik "zip" z hosts dla TWRP (dla starszych smartfonów Xiaomi)\
       > **zv2** - przygotuj plik "zip" z hosts dla TWRP - dla nowszych smartfonów Xiaomi: m. in. Mi 10, Mi 9, Mi 9 SE, Mi 9T/Redmi K20, Mi 9T Pro/Redmi K20 Pro, Redmi Note 7, Redmi Note 7 Pro, Redmi 7A, Redmi 7, Redmi Y3, Mi A2, Mi A2 Lite, Mi A3, Mi A1, Mi CC9, Mi CC9e, Mi CC9 Meitu, Redmi 6 (Android Pie), Redmi 6A (Android Pie)
+      
+      - plik `hosts` jak i plik zip generuje się w podkatalogu "adbgen-master" (by uniknąć bałaganu w katalogu pobierania)
+      - aby ponownie użyć skryptu po całkowitym wyłączeniu aplikacji Termux musisz najpierw przejść 
+        do katalogu "Download" i podkatalogu "adbgen-master" poleceniem: `godl && cd adbgen-master`
 
 2. Linux
 

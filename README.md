@@ -57,7 +57,8 @@ Można również wygenerować plik hosts w archiwum ZIP dla flashowania przy pom
       > **g** - wygeneruj plik hosts\
       > **c** - sprawdź, czy listy blokowania są aktualne\
       > **zv1** - przygotuj plik "zip" z hosts dla TWRP (dla starszych smartfonów Xiaomi)\
-      > **zv2** - przygotuj plik "zip" z hosts dla TWRP - dla nowszych smartfonów Xiaomi: m. in. Mi 10, Mi 9, Mi 9 SE, Mi 9T/Redmi K20, Mi 9T Pro/Redmi K20 Pro, Redmi Note 7, Redmi Note 7 Pro, Redmi 7A, Redmi 7, Redmi Y3, Mi A2, Mi A2 Lite, Mi A3, Mi A1, Mi CC9, Mi CC9e, Mi CC9 Meitu, Redmi 6 (Android Pie), Redmi 6A (Android Pie)
+      > **zv2** - przygotuj plik "zip" z hosts dla TWRP - dla nowszych smartfonów Xiaomi: m. in. Mi 10, Mi 9, Mi 9 SE, Mi 9T/Redmi K20, Mi 9T Pro/Redmi K20 Pro, Redmi Note 7, Redmi Note 7 Pro, Redmi 7A, Redmi 7, Redmi Y3, Mi A2, Mi A2 Lite, Mi A3, Mi A1, Mi CC9, Mi CC9e, Mi CC9 Meitu, Redmi 6 (Android Pie), Redmi 6A (Android Pie)\
+      > **zr** - usuń wszystkie utworzone wcześniej pliki zip blokady reklam
       
       - plik `hosts` jak i plik zip generuje się w podkatalogu "adbgen-master" (by uniknąć bałaganu w katalogu pobierania)
       - aby ponownie użyć skryptu po całkowitym wyłączeniu aplikacji Termux musisz najpierw przejść 

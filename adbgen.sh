@@ -85,7 +85,7 @@ echo "== Połączenie nagłówka i listy blokowania w finalny plik hosts =="
 cat $tmpheader hosts_joined.txt > ../hosts && echo "OK!"
 rm -v $tmpheader hosts_joined.txt
 
-echo "Plik hosts został wygenerowany!"
+echo "Plik hosts został wygenerowany w lokalizacji '$(dirname $PWD)'!"
 
 }
 
@@ -121,7 +121,7 @@ cp ../template_$1.zip tmp.zip
 mkdir -p system/etc
 cp ../hosts system/etc/hosts
 zip -urv tmp.zip system/etc/hosts
-mv -v tmp.zip ../Blokada_reklam_$1_`date '+%Y-%m-%d'`_unsigned.zip && echo "Utworzono plik! Pamiętaj o wyłączeniu weryfikacji podpisów w TWRP." && rm -R system/
+mv -v tmp.zip ../Blokada_reklam_$1_`date '+%Y-%m-%d'`_unsigned.zip && echo "Utworzono plik w lokalizacji '$(dirname $PWD)'! Pamiętaj o wyłączeniu weryfikacji podpisów w TWRP." && rm -R system/
 
 }
 
@@ -146,6 +146,9 @@ case $opt in
     zv2)
         twrp_zip v2
         ;;
+    zr)
+        rm -v ../Blokada_reklam_v*unsigned.zip 2>/dev/null && echo "Usunięto wszystkie pliki zip blokady reklam!" || echo "Brak plików zip blokady reklam do usunięcia!"
+        ;;
     *)
         cat <<EOF
         
@@ -157,6 +160,7 @@ g - wygeneruj plik hosts
 c - sprawdź, czy listy blokowania są aktualne
 zv1 - przygotuj plik "zip" z hosts dla TWRP (dla starszych smartfonów Xiaomi)
 zv2 - przygotuj plik "zip" z hosts dla TWRP (dla nowszych smartfonów Xiaomi: m. in. Mi 10, Mi 9, Mi 9 SE, Mi 9T/Redmi K20, Mi 9T Pro/Redmi K20 Pro, Redmi Note 7, Redmi Note 7 Pro, Redmi 7A, Redmi 7, Redmi Y3, Mi A2, Mi A2 Lite, Mi A3, Mi A1, Mi CC9, Mi CC9e, Mi CC9 Meitu, Redmi 6 (Android Pie), Redmi 6A (Android Pie))
+zr - usuń wszystkie utworzone wcześniej pliki zip blokady reklam
 
 EOF
         exit 1

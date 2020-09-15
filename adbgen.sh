@@ -20,6 +20,21 @@ dl_lists() {
 #pobieranie list blokowania do cache i generowanie sum kontrolnych
 i=1
 
+if ls *.txt -Qmv 2>/dev/null; then 
+    read -p "Znaleziono powyższe pliki list blokowania, czy pobrać wszystkie ponownie? [t/n]: " yn
+    case $yn in
+        [Tt])
+            #kontynuacja pobierania
+            ;;
+        [Nn])
+            return 0
+            ;;
+        *)
+            echo ">> Odpowiedz 't' (tak) lub 'n' (nie), przerywam!"; exit 1
+            ;;
+    esac
+fi
+
 if [ -f localchcksums.sha1 ]; then rm -v localchcksums.sha1; fi
 if [ ! -f ../urllist.txt ]; then echo "Brakuje pliku urllist.txt z adresami list blokowania!" && exit 1; fi
 

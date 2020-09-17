@@ -128,7 +128,7 @@ rm remotechcksums.sha1
 
 twrp_zip() {
 #tworzenie pliku zip do flashowania hosts w TWRP
-if [ ! -f ../hosts ]; then echo "Najpierw wygeneruj plik hosts! ( sh adbgen.sh g LUB ./adbgen.sh g )" && exit 1; fi
+if [ ! -f ../hosts ]; then echo "Najpierw wygeneruj plik hosts! ( bash adbgen.sh g LUB ./adbgen.sh g )" && exit 1; fi
 if [ ! -f ../template_$1.zip ]; then echo "W katalogu ze skryptem brakuje pliku szablonu template_$1.zip!" && exit 1; fi
 
 echo "== Tworzenie pliku zip (wersja $1) z hosts dla TWRP =="
@@ -167,7 +167,7 @@ case $opt in
     *)
         cat <<EOF
         
-Użycie: sh adbgen.sh [ OPCJA ]
+Użycie: bash adbgen.sh [ OPCJA ]
     lub ./adbgen.sh [ OPCJA ]
 
 d - tylko pobierz listy do katalogu cache

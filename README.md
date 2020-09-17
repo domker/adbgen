@@ -51,7 +51,7 @@ Można również wygenerować plik hosts w archiwum ZIP dla flashowania przy pom
       
     * Używanie skryptu
     
-      `sh adbgen.sh [OPCJA]`
+      `bash adbgen.sh [OPCJA]`
       
       > **d** - tylko pobierz listy do katalogu cache\
       > **g** - wygeneruj plik hosts\
@@ -98,6 +98,7 @@ Można również wygenerować plik hosts w archiwum ZIP dla flashowania przy pom
  ### UWAGI!
  
  - Generowane pliki zip dla TWRP są niepodpisane i przy ich flashowaniu trzeba odznaczyć pole weryfikacji sygnatury zip.
+ - Jeżeli twój smartfon miał Androida w wersji 10 w momencie zakupu posiada partycje dynamiczne, które nie można zamontować w trybie odczyt/zapis. Uniemożliwia to podmianę pliku `hosts` przez TWRP. W takim wypadku możesz tylko wygenerować plik `hosts` i go podmienić przy użyciu jakiegoś modułu aplikacji Magisk. (problem nie dotyczy smartfonów, które oryginalnie miały starszą wersję Androida i dostały Androida 10 jako aktualizację)
  - Skrypt można dowolnie pobierać i modyfikować. Używasz skryptu na własną odpowiedzialność.
  - W katalogu `stock_hosts` znajdują się oryginalne pliki hosts dla starszych i nowszych smartfonów Xiaomi
  - Jeżeli chcesz korzystać z opcji sprawdzania, czy na serwerach są nowe listy blokowania to nie usuwaj katalogu `cache` tworzonego przez skrypt

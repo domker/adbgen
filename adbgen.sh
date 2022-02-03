@@ -9,7 +9,9 @@
 
 clear
 echo "#### adbgen.sh by Domker_ ####"
-
+echo "#### MOD by OutSideR ####"
+echo
+echo
 if [ ! -d cache ]; then mkdir cache; fi
 cd cache
 
@@ -52,18 +54,25 @@ done < ../urllist.txt
 clean_lists() {
 #czyszczenie list ze zbędnych elementów i konsolidacja
 
-echo "== Zmiana formatu na hosts dla list Disconnect =="
-sed -i -e '1,4d; s/^/0.0.0.0 /' 1.txt 2.txt 3.txt && echo "OK!"
-
 
 echo "== Usuwanie nagłówków hosts =="
-sed -i '1,83d' 4.txt
-sed -i '1,27d' 5.txt
-sed -i '1,6d' 6.txt
-sed -i '1,24d' 7.txt
-sed -i '1,34d' 9.txt
-sed -i '1,39d' 10.txt
-sed -i '1,39d' 11.txt && echo "OK!"
+
+sed -i '1,40d' 1.txt
+sed -i '1,40d' 2.txt
+sed -i '1,11d' 3.txt
+sed -i '1,10d' 4.txt
+sed -i '1,18d' 5.txt
+sed -i '1,9d' 6.txt
+sed -i '1,6d' 7.txt
+sed -i '1,6d' 8.txt
+sed -i '1,6d' 9.txt
+sed -i '1,35d' 10.txt
+sed -i '1,22d' 11.txt
+sed -i '1,22d' 12.txt
+sed -i '1,40d' 13.txt
+sed -i '1,22d' 14.txt
+sed -i '1,40d' 15.txt
+sed -i '1,11d' 16.txt && echo "OK!"
 
 
 echo "== Łączenie wszystkich list =="
@@ -72,9 +81,6 @@ rm -v *.txt
 
 echo "== Usuwanie wszystkich komentarzy z listy =="
 sed -i 's/#.*$//;/^$/d' hosts_joined.dirty && echo "OK!"
-
-echo "== Zamiana 127.0.0.1 na 0.0.0.0 (zero-host) - optymalizacja =="
-sed -i 's/^127.0.0.1/0.0.0.0/g' hosts_joined.dirty && echo "OK!"
 
 echo "== Usuwanie zduplikowanych wpisów =="
 awk '!a[$0]++' hosts_joined.dirty > hosts_joined.txt && echo "OK!"
@@ -88,7 +94,7 @@ local tmpheader=`mktemp` || exit 1
 local header_urls=`while read url; do echo "# $url"; done < ../urllist.txt`
 
 cat > $tmpheader <<EOF
-Wygenerowano przy pomocy adbgen.sh (made by Domker_) dnia: `date '+%d-%m-%Y %H:%M:%S'`
+Wygenerowano przy pomocy adbgen.sh (made by Domker_) <<MOD by OutSideR>> dnia: `date '+%d-%m-%Y %H:%M:%S'`
 $header_urls
 
 127.0.0.1 localhost

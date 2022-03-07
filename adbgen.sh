@@ -70,9 +70,8 @@ sed -i '1,35d' 10.txt
 sed -i '1,22d' 11.txt
 sed -i '1,22d' 12.txt
 sed -i '1,40d' 13.txt
-sed -i '1,22d' 14.txt
-sed -i '1,40d' 15.txt
-sed -i '1,11d' 16.txt && echo "OK!"
+sed -i '1,40d' 14.txt
+sed -i '1,11d' 15.txt && echo "OK!"
 
 
 echo "== Łączenie wszystkich list =="
@@ -81,6 +80,12 @@ rm -v *.txt
 
 echo "== Usuwanie wszystkich komentarzy z listy =="
 sed -i 's/#.*$//;/^$/d' hosts_joined.dirty && echo "OK!"
+
+echo "== Usuwanie problematycznych wpisów =="
+sed -i 's/^0\.0\.0\.0 graph\.facebook\.com$//;/^$/d' hosts_joined.dirty
+sed -i 's/^0\.0\.0\.0 zhuti\.xiaomi\.com$//;/^$/d' hosts_joined.dirty
+sed -i 's/^0\.0\.0\.0 mqtt-mini\.facebook\.com$//;/^$/d' hosts_joined.dirty
+sed -i 's/^.*micloud.*$//;/^$/d' hosts_joined.dirty && echo "OK!"
 
 echo "== Usuwanie zduplikowanych wpisów =="
 awk '!a[$0]++' hosts_joined.dirty > hosts_joined.txt && echo "OK!"
